@@ -1,11 +1,12 @@
 
 from django.urls import path, include
 
-from .views import ImagesViewSet, ImagesDetailViewSet, CategoryViewSet
+from .views import ImagesViewSet, CategoryViewSet
+from rest_framework import routers
 
+router = routers.DefaultRouter()
 
-urlpatterns = [
-    path('', ImagesViewSet.as_view(), name='images'),
-    path('category/<int:pk>/', CategoryViewSet().as_view(), name='category_view'),
-    path('<int:pk>/', ImagesDetailViewSet.as_view(), name='imagesdetail'),
-]
+router.register(r'images', ImagesViewSet, basename='images')
+
+router.register(r'category', CategoryViewSet, basename='category')
+urlpatterns = router.urls

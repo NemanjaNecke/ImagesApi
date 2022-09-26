@@ -7,19 +7,18 @@ from .serializers import ImageSerializer, CategorySerializer
 from .models import Images, Category
 # Create your views here.
 
-class CategoryViewSet(generics.ListCreateAPIView):
+class CategoryViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         queryset = Images.objects.filter(category=self.kwargs["pk"])
         return queryset
 
-    
     serializer_class = ImageSerializer
 
-class ImagesViewSet(generics.ListCreateAPIView):
+class ImagesViewSet(viewsets.ModelViewSet):
     queryset = Images.objects.all()
 
     serializer_class = ImageSerializer
 
-class ImagesDetailViewSet(generics.RetrieveDestroyAPIView):
-    queryset = Images.objects.all()
-    serializer_class = ImageSerializer
+# class ImagesDetailViewSet(generics.RetrieveDestroyAPIView):
+#     queryset = Images.objects.all()
+#     serializer_class = ImageSerializer
