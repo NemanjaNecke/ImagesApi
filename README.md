@@ -1,5 +1,6 @@
 # imagesAPI
- Simple REST API for Images
+ RESTful API for Images App
+ API is currently hosted on pythonanywhere and can be accessed thorugh Angular Front end App https://images-rest-app.web.app/
 Getting Started
 First clone the repository from Github and switch to the new directory:
 
