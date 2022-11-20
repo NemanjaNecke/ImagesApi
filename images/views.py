@@ -22,7 +22,7 @@ class CategoryViewSet(generics.ListAPIView):
 
 class ImagesViewSet(viewsets.ModelViewSet):
     queryset = Images.objects.all()
-    #permission_classes = [HasProfileAPIKey and IsAuthenticated]
+    permission_classes = [HasProfileAPIKey and IsAuthenticated]
     serializer_class = ImageSerializer
 
 # class ImagesDetailViewSet(generics.RetrieveDestroyAPIView):
