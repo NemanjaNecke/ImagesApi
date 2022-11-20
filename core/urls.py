@@ -7,7 +7,8 @@ from django.urls import re_path as url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url('images/', include('images.urls')),
+    url('', include('images.urls')),
+    url('', include('users.urls')),
 ] 
 if settings.DEBUG:
     from django.conf.urls.static import static

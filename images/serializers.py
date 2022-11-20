@@ -8,6 +8,8 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = ['id', 'name']
 
 class ImageSerializer(serializers.ModelSerializer):
+    #category = CategorySerializer(many=True)
+    
     class Meta:
         model = Images
         fields = ['id', 'category', 'title', 'alt', 'created', 'author', 'status', 'image']

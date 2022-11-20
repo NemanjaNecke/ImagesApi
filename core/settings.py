@@ -40,7 +40,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'images',
     'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',
+    'rest_framework_api_key',
+    'users',
+    'dj_rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'dj_rest_auth.registration',
+
 ]
 
 MIDDLEWARE = [
@@ -54,6 +64,20 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
+ 
+REST_USE_JWT = True
+
+SITE_ID = 1
+
+EMAIL_HOST = 'localhost'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_PORT = 587
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 ROOT_URLCONF = 'core.urls'
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -138,3 +162,5 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
