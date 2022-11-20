@@ -12,12 +12,12 @@ from rest_framework.permissions import IsAuthenticated
 class CategoriesView(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    #permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 class CategoryViewSet(generics.ListAPIView):
     def get_queryset(self):
         queryset = Images.objects.filter(category=self.kwargs["pk"])
         return queryset
-    #permission_classes = [HasProfileAPIKey and IsAuthenticated]
+    permission_classes = [HasProfileAPIKey and IsAuthenticated]
     serializer_class = ImageSerializer
 
 class ImagesViewSet(viewsets.ModelViewSet):
